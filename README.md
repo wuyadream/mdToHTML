@@ -9,3 +9,12 @@ node.js :  搭建服务器
 
 ## run
 
+```
+
+npm install
+
+npm run dev
+
+```
+
+访问 127.0.0.1:8088

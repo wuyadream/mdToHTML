@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mdToHTML web app</title>
+    <link href="css/myStyle.css" rel="stylesheet">
+</head>
+<body>
+<div id="content">
+    <h1 class="title">md-to-HTML web app</h1>
+    <div id="article">
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script>
+    var article = document.getElementById('article');
+
+    $.ajax({
+        url: "/getMdFile", success: function(result) {
+            console.log('数据获取成功');
+            article.innerHTML = JSON.parse(result).body;
+        }, error: function (err) {
+            console.log(err);
+            article.innerHTML = '<p>获取数据失败</p>';
+        }
+    });
+</script>
+</body>
+</html>
